@@ -202,9 +202,6 @@ export const getCreatorTokenAccount = async (
   const creatorTokenInfo = AccountLayout.decode(
     Buffer.from(creatorTokenAccount.data),
   );
-  if (new BN(creatorTokenInfo.amount, 8, 'le').toNumber() < totalClaim) {
-    throw new Error(`Creator token account does not have enough tokens`);
-  }
   return creatorTokenKey;
 };
 
